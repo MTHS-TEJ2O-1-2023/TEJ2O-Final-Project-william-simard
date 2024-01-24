@@ -10,9 +10,9 @@ let signal: number = 0
 const rgbRing = neopixel.create(DigitalPin.P0, 8, NeoPixelMode.RGB)
 
 // on start (from Micro:bit proximity beacon)
-radio.setGroup(11)
-radio.setTransmitPower(1)
-basic.forever(function () {
+    radio.setGroup(11)
+    radio.setTransmitPower(1)
+    basic.forever(function () {
     radio.sendString('1')
     basic.pause(200)
 })
@@ -26,7 +26,7 @@ input.onGesture(Gesture.Shake, function () {
 })
 
 // Check recieved signal strength and if signal strength is less than -60  flash rgbRing low brightness
-radio.onReceivedString(function (receivedString) {
+    radio.onReceivedString(function (receivedString) {
     basic.clearScreen()
     signal = radio.receivedPacket(RadioPacketProperty.SignalStrength)
     if (signal <= -60) {
